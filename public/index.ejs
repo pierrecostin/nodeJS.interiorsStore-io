@@ -1,0 +1,45 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <title>Pierre Store</title>
+  <link href="/css.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=411px, initial-scale=1.0">
+
+</head>
+  <body>
+<div id="fixed">
+  <header>
+    <div class="centerDivs">
+      <img onClick="location.reload();" src="/img/logo.png"/>
+      <button onClick="document.getElementById('pop').classList.toggle('hide'); document.getElementById('iframe').src = 'mon-panier';"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span id="nProduit"><%= nb %></span></button>
+      <button onClick="document.getElementById('pop').classList.toggle('hide'); document.getElementById('iframe').src = 'login';"><i class="fa fa-user" aria-hidden="true"></i></button>
+    </div>
+  </header>
+
+  <section id="pop" class="hide">
+    <button onClick="document.getElementById('pop').classList.toggle('hide');"><i class="fa fa-times" aria-hidden="true"></i></button>
+    <iframe id="iframe" name="iframe" src=""></iframe>
+  </section>
+</div>
+
+<article class="centerDivs">
+
+
+
+
+
+
+
+</article> 
+
+
+
+<footer>
+
+</footer>
+  </body>
+</html>
+
+
+<script src="js.js"></script>

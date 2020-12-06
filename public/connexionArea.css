@@ -1,0 +1,19 @@
+*{box-sizing: border-box;margin: 0;
+    border-radius: 0;
+  border:none;
+outline: none;}
+body{font-family: 'Open Sans', sans-serif;}
+
+button{ background: 	#707070; padding: 8px 18px; color: white; float: right;cursor: pointer;}
+p{padding:16px 32px;}
+article {padding:12px 0;overflow: auto;height: calc(100vh - 80px);}
+article h3{font-size: 28px;text-align: center;padding:12px;}
+article h3{font-size: 20px;padding:8px;}
+article div{width: 50%; float: left;padding:12px 2%;border-right: #CCC 1px solid;margin: 12px 0;}
+article input{display: block; padding: 8px 12px;font-size: 16px;margin:6px 0;
+width: 100%;}
+article input[type=submit]{background:#a6a6a6}
+
+
+div#connectionMsg{float: none;background:	#707070 ; clear: both; border: 1px #CCC solid;
+border-radius: 6px;width: 80%;margin: 12px auto; }

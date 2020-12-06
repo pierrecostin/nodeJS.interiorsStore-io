@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+        <link href="/connexionArea.css" rel="stylesheet"/>
+    </head>
+<body>
+<article>
+    <h3>CONNEXION</h3>
+    <div>
+    <h4>Register</h4>
+    <form action="/register" method="POST">
+      <input type="text" name="name" placeholder="Name"/>
+      <input type="text" name="email" placeholder="Your@email.here"/>
+      <input type="password" name="password" placeholder="- - - - - -"/>
+      <input type="submit" value="Register"/>
+    </form>  
+    </div>
+    <div>
+    <h4>Sign in</h4>
+    <form action="/signin" method="POST">
+      <input type="text" name="email" placeholder="your@email.here"/>
+      <input type="password" name="password" placeholder="- - - - - -"/>
+      <input style="visibility: hidden;" type="submit" value="Login"/>
+      <input type="submit" value="Login"/>
+    </form>
+    </div>
+</article>
+</body>
+</html>
+
+

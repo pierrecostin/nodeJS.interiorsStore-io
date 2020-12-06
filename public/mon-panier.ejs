@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"/>
+    </head>
+<body>
+<article>
+    <h1>Your basket</h1>
+    <%- afficherPanier %>
+
+
+
+<div id="paypal-button-container"></div>
+
+<!-- Include the PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=Adp6AQc4kYT8PjUM6aOcPyZWehLHixGhEPBPPLMt8NzOQI3dLPDg0vjRg20CJbiCn6PZxb8e9D1ySOZa&currency=CAD"></script>
+
+<script>
+    // Render the PayPal button into #paypal-button-container
+    var totalTTC = document.getElementById("totalTTC").innerHTML;
+    
+    paypal.Buttons({
+        // Set up the transaction
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: totalTTC
+                    }
+                }]
+            });
+        },
+
+        // Finalize the transaction
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Show a success message to the buyer
+                let json = { priceCommande: totalTTC, nbCommande: details.id, dateCommande: details.create_time, emailCommande: details.payer.email_address, surnameCommande: details.payer.name.given_name+" "+details.payer.name.surname };
+                
+                fetch("commande",{method:"post", body: JSON.stringify(json), headers: new Headers({'Content-Type': 'application/json'}) })
+                .then(resp => {
+                if(resp.status==200){
+                   return resp.json()
+                }});
+                
+                
+                console.log(json);
+                //alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
+        }
+
+
+    }).render('#paypal-button-container');
+</script>
+
+
+
+
+
+
+
+
+
+</article>
+</body>
+</html>
+<style>
+  *{box-sizing: border-box;margin: 0;
+    border-radius: 0;
+  border:none;
+outline: none;}
+
+body{font-family: 'Open Sans', sans-serif;}
+h4{margin: 12px 0 0 12px;}
+article{margin:auto;padding:26px;
+max-width: 480px;}
+div{border-bottom: 1px #CCC solid;overflow: auto;
+}
+img{ float: left; width: 64px;}
+span {float: right;}
+.prixG{text-align: right;}
+a{text-decoration: none;font-weight: bold;color: inherit;}
+</style>
